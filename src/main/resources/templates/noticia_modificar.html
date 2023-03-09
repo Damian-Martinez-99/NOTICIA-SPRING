@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Modificar noticia</title>
+    <meta charset="UTF-8">
+    <!--        <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+</head>
+
+<body>
+    <h1>Modificar una noticia</h1>
+    <div>
+        <form th:action="@{/noticia/modificacionNoticia/__${noticia.idNoticia}__}" method="POST">
+            <input th:value="${idNoticia}" hidden name="idNoticia">
+            <input th:value="${noticia.titulo}" type="text" name="titulo">
+            <br>
+            <br>
+            <textarea th:field="${noticia.cuerpo}" type="text" name="cuerpo"></textarea>
+            <br>
+            <br>
+            <button type="submit"> Enviar </button>
+            <!--<input type = "submit" name = "Submit" value = "Enviar">-->
+        </form>
+    </div>
+    <div th:if="${exito != null}">
+        <p th:text="${exito}"></p>
+    </div>
+    <div th:if="${error != null}">
+        <p th:text="${error}"></p>
+    </div>
+</body>
+
+</html>
